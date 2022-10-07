@@ -1,17 +1,19 @@
 import './Menu.css'
+import React from 'react'
+import { Link} from 'react-router-dom'
 
 export default function Menu(props) {
     return (
         <nav className='menu'>
-            <a href="#/">
+            <Link to="/alunos">
                 Alunos
-            </a>
-            <a href="#/">
-                Cursos
-            </a>
-            <a href="#/">
+            </Link>
+            <Link to="/cursos">
+                Curso
+            </Link>
+            <Link to="/carometro">
                 Carômetro
-            </a>
+            </Link>
         </nav>
     )
 }
