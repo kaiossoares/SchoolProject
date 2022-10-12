@@ -6,7 +6,6 @@ import Menu from './components/template/Menu'
 import Footer from './components/template/Footer'
 import Rotas from './Rotas';
 import { BrowserRouter } from 'react-router-dom';
-//import CrudAluno from './components/CrudAluno/CrudAluno'
 
 function App() {
   return (

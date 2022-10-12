@@ -1,24 +1,17 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import './CrudAluno.css'
-import Main from '../template/Main'
+import React, { Component } from "react"
+import axios from "axios"
+import './CrudCurso.css'
+import Main from "../template/Main"
 
-const title = "Cadastro de Alunos"
+const title = "Cadastro de Cursos"
 
-const urlAPI = "https://localhost:7008/api/aluno"
+const urlAPI = "https://localhost:7008/api/curso"
 const initialState = {
-    aluno: { id: 0, ra: '', nome: '', codCurso: 0 },
+    curso: { id: 0, codCurso: 0, nomeCurso: '', periodo: '' },
     lista: []
 }
 
-/*const Alunos = [
-    { 'id': 1, 'ra': 11111, 'nome': 'André', 'codCurso': 19 },
-    { 'id': 2, 'ra': 22222, 'nome': 'Amanda', 'codCurso': 28 },
-    { 'id': 3, 'ra': 33333, 'nome': 'Pedro', 'codCurso': 39 },
-    { 'id': 4, 'ra': 44444, 'nome': 'Alice', 'codCurso': 59 },
-]*/
-
-export default class CrudAluno extends Component {
+export default class CrudCurso extends Component {
 
     state = { ...initialState }
 
@@ -29,50 +22,50 @@ export default class CrudAluno extends Component {
     }
 
     limpar() {
-        this.setState({ aluno: initialState.aluno })
+        this.setState({ curso: initialState.curso })
     }
 
     salvar() {
-        const aluno = this.state.aluno
-        aluno.codCurso = Number(aluno.codCurso)
-        const metodo = aluno.id ? 'put' : 'post'
-        const url = aluno.id ? `${urlAPI}/${aluno.id}` : urlAPI
+        const curso = this.state.curso
+        curso.codCurso = Number(curso.codCurso)
+        const metodo = curso.id ? 'put' : 'post'
+        const url = curso.id ? `${urlAPI}/${curso.id}` : urlAPI
 
-        axios[metodo](url, aluno)
+        axios[metodo](url, curso)
             .then(resp => {
                 const lista = this.getListaAtualizada(resp.data)
-                this.setState({ aluno: initialState.aluno, lista })
+                this.setState({ curso: initialState.curso, lista })
             })
     }
 
-    getListaAtualizada(aluno, add = true) {
-        const lista = this.state.lista.filter(a => a.id !== aluno.id)
-        if (add) lista.unshift(aluno)
+    getListaAtualizada(curso, add = true) {
+        const lista = this.state.lista.filter(a => a.id !== curso.id)
+        if (add) lista.unshift(curso)
         return lista
     }
 
     atualizaCampo(event) {
         //clonar usuário a partir do state, para não alterar o state diretamente
-        const aluno = { ...this.state.aluno };
+        const curso = { ...this.state.curso };
         //usar o atributo NAME do input para identificar o campo a ser atualizado
-        aluno[event.target.name] = event.target.value;
+        curso[event.target.name] = event.target.value;
         //atualizar o state
-        this.setState({ aluno });
+        this.setState({ curso });
     }
 
-    carregar(aluno) {
-        this.setState({ aluno })
+    carregar(curso) {
+        this.setState({ curso })
     }
 
-    remover(aluno) {
-        const url = urlAPI + "/" + aluno.id;
-        if (window.confirm("Confirma remoção do aluno: " + aluno.ra)) {
+    remover(curso) {
+        const url = urlAPI + "/" + curso.id;
+        if (window.confirm("Confirma remoção do curso: " + curso.codCurso)) {
             console.log("entrou no confirm");
 
-            axios['delete'](url, aluno)
+            axios['delete'](url, curso)
                 .then(resp => {
-                    const lista = this.getListaAtualizada(aluno, false)
-                    this.setState({ aluno: initialState.aluno, lista })
+                    const lista = this.getListaAtualizada(curso, false)
+                    this.setState({ curso: initialState.curso, lista })
                 })
         }
     }
@@ -80,15 +73,15 @@ export default class CrudAluno extends Component {
     renderForm() {
         return (
             <div className="inclui-container">
-                <label> RA: </label>
+                <label> Código: </label>
                 <input
                     type="text"
-                    id="ra"
-                    placeholder="RA do aluno"
+                    id="cod"
+                    placeholder="Código do curso"
                     className="form-input"
-                    name="ra"
+                    name="cod"
 
-                    value={this.state.aluno.ra}
+                    value={this.state.curso.codCurso}
 
                     onChange={e => this.atualizaCampo(e)}
                 />
@@ -96,24 +89,24 @@ export default class CrudAluno extends Component {
                 <input
                     type="text"
                     id="nome"
-                    placeholder="Nome do aluno"
+                    placeholder="Nome do curso"
                     className="form-input"
                     name="nome"
 
-                    value={this.state.aluno.nome}
+                    value={this.state.curso.nomeCurso}
 
                     onChange={e => this.atualizaCampo(e)}
                 />
-                <label> Código do Curso: </label>
+                <label> Período: </label>
                 <input
-                    type="number"
-                    id="codCurso"
-                    placeholder="0"
+                    type="text"
+                    id="periodo"
+                    placeholder="Período"
 
                     className="form-input"
-                    name="codCurso"
+                    name="periodo"
 
-                    value={this.state.aluno.codCurso}
+                    value={this.state.curso.periodo}
                     onChange={e => this.atualizaCampo(e)}
                 />
                 <button className="btnSalvar"
@@ -131,29 +124,29 @@ export default class CrudAluno extends Component {
     renderTable() {
         return (
             <div className="listagem">
-                <table className="listaAlunos" id="tblListaAlunos">
+                <table className="listaCursos" id="tblListaCursos">
                     <thead>
                         <tr className="cabecTabela">
-                            <th className="tabTituloRa">Ra</th>
+                            <th className="tabTituloCod">Código do curso</th>
                             <th className="tabTituloNome">Nome</th>
-                            <th className="tabTituloCurso">Curso</th>
+                            <th className="tabTituloPeriodo">Período</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.lista.map(
-                            (aluno) =>
+                            (curso) =>
 
-                                <tr key={aluno.id}>
-                                    <td>{aluno.ra}</td>
-                                    <td>{aluno.nome}</td>
-                                    <td>{aluno.codCurso}</td>
+                                <tr key={curso.id}>
+                                    <td>{curso.codCurso}</td>
+                                    <td>{curso.nomeCurso}</td>
+                                    <td>{curso.periodo}</td>
                                     <td>
-                                        <button onClick={() => this.carregar(aluno)} >
+                                        <button onClick={() => this.carregar(curso)} >
                                             Altera
                                         </button>
                                     </td>
                                     <td>
-                                        <button onClick={() => this.remover(aluno)} >
+                                        <button onClick={() => this.remover(curso)} >
                                             Remove
                                         </button>
                                     </td>
