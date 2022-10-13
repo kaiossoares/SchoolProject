@@ -36,9 +36,22 @@ input[type=text] {
     margin: 8px 0;
 }
 
+input#ra {
+    display: inline-block;
+    width: 15%;
+    padding: 12px;
+    margin: 8px 0;
+}
+
 input[type=number] {
     padding: 12px;
-    width: 50px;
+    width: 25px;
+}
+
+select {
+    width: 20%;
+    padding: 12px;
+    margin: 8px 0;
 }
 
 .inclui-container {

@@ -2,7 +2,7 @@
     margin-left: 20px;
 }
 
-.listaAlunos {
+.listaCursos {
     margin-left: 20px;
     font-family:
         'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'LucidaSans', Arial, sans-serif;
@@ -39,6 +39,10 @@ input[type=text] {
 input[type=number] {
     padding: 12px;
     width: 50px;
+}
+
+select#periodo {
+    width: 18%;
 }
 
 .inclui-container {

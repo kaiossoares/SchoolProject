@@ -75,11 +75,11 @@ export default class CrudCurso extends Component {
             <div className="inclui-container">
                 <label> Código: </label>
                 <input
-                    type="text"
-                    id="cod"
+                    type="number"
+                    id="codCurso"
                     placeholder="Código do curso"
                     className="form-input"
-                    name="cod"
+                    name="codCurso"
 
                     value={this.state.curso.codCurso}
 
@@ -88,27 +88,24 @@ export default class CrudCurso extends Component {
                 <label> Nome: </label>
                 <input
                     type="text"
-                    id="nome"
+                    id="nomeCurso"
                     placeholder="Nome do curso"
                     className="form-input"
-                    name="nome"
+                    name="nomeCurso"
 
                     value={this.state.curso.nomeCurso}
 
                     onChange={e => this.atualizaCampo(e)}
-                />
+                />          
+
                 <label> Período: </label>
-                <input
-                    type="text"
-                    id="periodo"
-                    placeholder="Período"
+                <select id="periodo" name="periodo" onChange={e => this.atualizaCampo(e)}>
+                    <option>Selecione o período</option>
+                    <option value="M">Matutino  </option>
+                    <option value="V">Vespertino</option>
+                    <option value="N">Noturno   </option>
+                </select>
 
-                    className="form-input"
-                    name="periodo"
-
-                    value={this.state.curso.periodo}
-                    onChange={e => this.atualizaCampo(e)}
-                />
                 <button className="btnSalvar"
                     onClick={e => this.salvar(e)} >
                     Salvar
