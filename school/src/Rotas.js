@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import Main from './components/template/Main'
 import CrudAluno from './components/CrudAluno/CrudAluno'
 import CrudCurso from './components/CrudCurso/CrudCurso'
+import CrudCarometro from './components/CrudCarometro/CrudCarometro'
 
 export default function Rotas() {
     return (
@@ -16,6 +17,7 @@ export default function Rotas() {
             />
             <Route path='/alunos' element={<CrudAluno />} />
             <Route path='/cursos' element={<CrudCurso />} />
+            <Route path='/carometro' element={<CrudCarometro />} />
             <Route path='*' element={
 
                 <Main title="Bem Vindo!">

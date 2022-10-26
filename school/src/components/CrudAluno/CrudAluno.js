@@ -16,13 +16,6 @@ const initialState = {
     listaCurso: []
 }
 
-/*const Alunos = [
-    { 'id': 1, 'ra': 11111, 'nome': 'André', 'codCurso': 19 },
-    { 'id': 2, 'ra': 22222, 'nome': 'Amanda', 'codCurso': 28 },
-    { 'id': 3, 'ra': 33333, 'nome': 'Pedro', 'codCurso': 39 },
-    { 'id': 4, 'ra': 44444, 'nome': 'Alice', 'codCurso': 59 },
-]*/
-
 export default class CrudAluno extends Component {
 
     state = { ...initialState }

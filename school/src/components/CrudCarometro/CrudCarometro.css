@@ -1,0 +1,25 @@
+.card {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 15.93%;
+    bottom: 0%;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: 141px;
+    height: 226px;
+}
+
+.picture {
+    position: absolute;
+    left: 24.11%;
+    right: 24.82%;
+    top: 0%;
+    bottom: 68.14%;
+
+    background: url(https://media-exp1.licdn.com/dms/image/C4D03AQFUSWcenSMADA/profile-displayphoto-shrink_800_800/0/1663933632920?e=1672272000&v=beta&t=5W-TmwxGbtj3Z5xKocfEkD_CM-UZol68yVKm-1WAAw0);
+    border: 6px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
