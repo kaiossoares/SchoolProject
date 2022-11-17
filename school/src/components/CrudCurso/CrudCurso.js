@@ -100,7 +100,7 @@ export default class CrudCurso extends Component {
 
                 <label> Período: </label>
                 <select id="periodo" name="periodo" onChange={e => this.atualizaCampo(e)}>
-                    <option>Selecione o período</option>
+                    <option disabled="disabled" selected="selected">Selecione o período</option>
                     <option value="M">Matutino  </option>
                     <option value="V">Vespertino</option>
                     <option value="N">Noturno   </option>

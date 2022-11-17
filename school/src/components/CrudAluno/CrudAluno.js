@@ -112,7 +112,7 @@ export default class CrudAluno extends Component {
 
                 <label> Curso: </label>
                 <select onChange={e => this.atualizaCampo(e)} name="codCurso">
-                    <option value="">Selecione um curso</option>
+                    <option value="" disabled="disabled" selected="selected">Selecione um curso</option>
                     {this.state.listaCurso.map(curso => (<option key={curso.id} value={curso.codCurso}
                     >{curso.nomeCurso}</option>))}
                 </select>
