@@ -132,7 +132,6 @@ export default class CrudCurso extends Component {
                     <tbody>
                         {this.state.lista.map(
                             (curso) =>
-
                                 <tr key={curso.id}>
                                     <td>{curso.codCurso}</td>
                                     <td>{curso.nomeCurso}</td>

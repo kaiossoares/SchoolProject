@@ -6,7 +6,6 @@
     margin-left: 20px;
     font-family:
         'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'LucidaSans', Arial, sans-serif;
-
 }
 
 .cabecTabela {
@@ -38,7 +37,7 @@ input[type=text] {
 
 input#ra {
     display: inline-block;
-    width: 15%;
+    width: 10%;
     padding: 12px;
     margin: 8px 0;
 }

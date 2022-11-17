@@ -20,5 +20,6 @@ namespace school_API.Data
 
         public DbSet<Aluno> Aluno { get; set; }
         public DbSet<Curso> Curso { get; set; }
+        public DbSet<Carometro> Carometro { get; set; }
     }
 }
